@@ -75,6 +75,51 @@
             background:#1d4ed8;
         }
 
+        .btn{
+            position:relative;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+        }
+
+        .btn svg{
+            width:18px;
+            height:18px;
+            flex-shrink:0;
+        }
+
+        .btn-cv.is-success{
+            background:#16a34a;
+            pointer-events:none;
+        }
+
+        .btn-cv .btn-icon,
+        .btn-cv .btn-check{
+            display:inline-flex;
+            transition:opacity .2s ease, transform .2s ease;
+        }
+
+        .btn-cv .btn-check{
+            position:absolute;
+            opacity:0;
+            transform:scale(.5);
+        }
+
+        .btn-cv.is-success .btn-icon{
+            opacity:0;
+            transform:scale(.5);
+        }
+
+        .btn-cv.is-success .btn-check{
+            opacity:1;
+            transform:scale(1);
+        }
+
+        .btn-linkedin:hover{
+            background:#1d4ed8;
+            box-shadow:0 4px 12px rgba(37,99,235,.4);
+        }
+
         .hero-image{
             flex:1;
             min-width:280px;
@@ -200,11 +245,13 @@ y orientada a resolver problemas mediante herramientas modernas de desarrollo y
 tecnologías de Inteligencia Artificial.
 </p>
 
-<a href="Curriculum.pdf" target="_blank" class="btn">
-📄 Ver Curriculum
+<a href="Curriculum.pdf" download="Curriculum-Ericka-Calvo.pdf" class="btn btn-cv" id="cvBtn" aria-live="polite">
+<span class="btn-icon">📄 Ver Curriculum</span>
+<span class="btn-check">✅ ¡Descargado!</span>
 </a>
 
-<a href="https://www.linkedin.com/feed/" target="_blank" class="btn">
+<a href="https://www.linkedin.com/feed/" target="_blank" class="btn btn-linkedin">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
 LinkedIn
 </a>
 
@@ -360,6 +407,16 @@ contribuyo al éxito de la organización.
 </p>
 
 </footer>
+
+<script>
+document.getElementById('cvBtn').addEventListener('click', function () {
+    var btn = this;
+    btn.classList.add('is-success');
+    setTimeout(function () {
+        btn.classList.remove('is-success');
+    }, 2200);
+});
+</script>
 
 </body>
 
